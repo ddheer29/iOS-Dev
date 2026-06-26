@@ -134,3 +134,128 @@ if uniqueNumbers.contains(4) {
 for number in uniqueNumbers {
     print(number) // This will print each number in the uniqueNumbers set on a new line
 }
+
+// Control Flow - if, else, switch, for-in, while, repeat-while
+// if-else statement
+let temperature = 30
+if temperature > 30 {
+    print("It's a hot day.")
+} else if temperature < 10 {
+    print("It's a cold day.")
+} else {
+    print("The weather is moderate.")
+}
+
+// optional binding
+
+let thisnum  = "42h"
+if let newNum = Int(thisnum) { // this is also called type casting, where we are trying to convert a String to an Int. The Int() initializer attempts to create an integer from the string representation of a number. If the conversion is successful, it returns an optional Int value. If the conversion fails (e.g., if the string contains non-numeric characters), it returns nil.
+    print("Converted number is \(newNum)") // This will print "Converted number is 42" if the conversion from String to Int is successful.
+} else {
+    print("Conversion failed")
+}
+
+// Iska matlab hai:
+// "Agar conversion successful hui, toh us value ko n me store kar do."
+// Aur agar nahi hui...
+// else {
+// wala block chalega.
+
+func printSqr() {
+    guard let n = Int("nope") else {
+        print("Conversion failed")
+        return
+    }
+    print(n * n)
+}
+
+printSqr()
+
+// switch statement
+
+let score = 94
+switch score {
+    case 0:
+        print("No score")
+    case 1...50:
+        print("Low score")
+    case 51...80:
+        print("Average score")
+    case 81...100:
+        print("High score")
+    default:
+        print("Invalid score")
+}
+
+// for loops
+
+let animals = ["Dog", "Cat", "Elephant"]
+
+for animal in animals {
+    print(animal) // This will print each animal in the animals array on a new line
+}
+
+for i in 1...10 where i % 2 == 0 {
+    print("even \(i)") // This will print all even numbers from 1 to 10 on a new line
+}
+
+let dict = ["a": 1, "b": 2, "c": 3]
+
+for (key, value) in dict {
+    print("\(key): \(value)") // This will print each key-value pair in the dict dictionary on a new line
+}
+
+var count = 5;
+
+while count > 0 {
+    print("Count is \(count)") // This will print the current value of count on a new line
+    count -= 1 // This decrements the value of count by 1 in each iteration of the loop
+}
+
+var attempts = 0
+ repeat {
+    print("Attempt \(attempts + 1)") // This will print the current attempt number on a new line
+    attempts += 1 // This increments the value of attempts by 1 in each iteration of the loop
+} while attempts < 3 // The loop will continue as long as attempts is less than 3. After the third attempt, the loop will exit, and the program will continue executing any remaining code
+
+// fallthrough in switch statements
+
+var grade = "B"
+switch grade {
+    case "A":
+        print("Excellent!")
+    case "B":
+        print("Good job!")
+        fallthrough // The fallthrough statement allows the execution to continue to the next case in the switch statement, even if the case does not match. In this case, after printing "Good job!", the execution will continue to the next case, which is "C".
+    case "C":
+        print("You passed.")
+    case "D":
+        print("You need improvement.")
+    default:
+        print("Invalid grade.")
+}
+
+outer: for i in 1...3 {
+    for j in 1...3 {
+        if i == 2 && j == 2 {
+            print("Found i: \(i), j: \(j), breaking out of outer loop") // This will print a message indicating that the condition has been met and the program is about to break out of the outer loop
+            break outer // The break statement with a label allows you to exit the outer loop when the condition is met. In this case, when i is 2 and j is 2, the execution will break out of the outer loop, and the program will continue executing any remaining code after the outer loop.
+        }
+
+        if j % 2 == 0 {
+            print("Skipping j: \(j)") // This will print a message indicating that the current value of j is being skipped when j is even
+            continue // The continue statement skips the current iteration of the inner loop and moves to the next
+        }
+        print("i: \(i), j: \(j)") // This will print the current values of i and j on a new line
+    }
+}
+
+// defer statement
+
+func demonstrateDefer() {
+    defer { print("First defer block executed") } // The defer statement is used to schedule a block of code to be executed just before the function returns. In this case, the first defer block will be executed after the function completes its execution, but before it returns to the caller.
+    defer { print("Second defer block executed") } // The second defer block will also be executed in the reverse order of their appearance, meaning it will be executed before the first defer block.
+    print("Inside Function") // This will print "Inside Function" when the function is called, before the defer blocks are executed.    
+}
+
+demonstrateDefer() // This will call the demonstrateDefer() function, which will execute the code inside the function, including the defer blocks. The output will show the order of execution of the print statements and the defer blocks.

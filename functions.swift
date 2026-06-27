@@ -33,3 +33,20 @@ func introduce(name: String, age: Int = 18) {
 
 introduce(name: "Charlie")
 introduce(name: "David", age: 25)
+
+// Function that returns tuple
+func getMinMac(numbers: [Int]) -> (min: Int, max: Int) {
+    return (numbers.min()!, numbers.max()!)
+}
+
+let numbers = [3, 7, 1, 9, 4]
+let result = getMinMac(numbers: numbers)
+print("Min: \(result.min), Max: \(result.max)")
+
+func averageCalculatr(_ numbers: Double...) -> Double {
+    let total = numbers.reduce(0, +)
+    return total / Double(numbers.count)
+}
+
+let avg = averageCalculatr(10.0, 20.0, 30.0, 40.0)
+print("Average: \(avg)")

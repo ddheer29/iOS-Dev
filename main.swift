@@ -259,3 +259,7 @@ func demonstrateDefer() {
 }
 
 demonstrateDefer() // This will call the demonstrateDefer() function, which will execute the code inside the function, including the defer blocks. The output will show the order of execution of the print statements and the defer blocks.
+
+// Tuples - Tuples are used to group multiple values into a single compound value. Each value in a tuple can be of a different type, and you can access the individual values using their index or by naming them.
+let person: (name: String, age: Int, isStudent: Bool) = ("John", 25, true) // A tuple named person is declared with three elements: name (String), age (Int), and isStudent (Bool). The tuple is initialized with the values "John", 25, and true.
+print("Name: \(person.name), Age: \(person.age), Is Student: \(person.isStudent)") // This will print the values of the tuple elements using their names. The output will be "Name: John, Age: 25, Is Student: true".

@@ -50,3 +50,24 @@ func averageCalculatr(_ numbers: Double...) -> Double {
 
 let avg = averageCalculatr(10.0, 20.0, 30.0, 40.0)
 print("Average: \(avg)")
+
+// Pass by reference using inout parameters, normally parameters are passed by value, but using inout we can pass by reference
+func swapValues(_ a: inout Int, _ b: inout Int) {
+    let temp = a
+    a = b
+    b = temp
+}
+
+var x = 5
+var y = 10
+print("Before swap: x = \(x), y = \(y)")
+swapValues(&x, &y)
+print("After swap: x = \(x), y = \(y)")
+
+func multiply(_ a: Int, _ b: Int) -> Int {
+    return a * b
+}
+
+var operation: (Int, Int) -> Int = multiply
+let product = operation(4, 5)
+print("Product: \(product)")
